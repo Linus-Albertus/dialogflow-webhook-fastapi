@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import List, Optional
+from typing import Optional
 from pydantic import BaseModel
 
 
@@ -14,7 +14,7 @@ class Platform(Enum):
 
 
 class TextObject(BaseModel):
-    text: List[str]
+    text: list[str]
 
 
 class Message(BaseModel):
@@ -85,6 +85,6 @@ class DialogFlowResponse(BaseModel):
     # fulfillmentMessages: list[Message] | None
     source: Optional[str] | None
     # payload: dict
-    outputContexts: Optional[List[Context]]
+    outputContexts: Optional[list[Context]]
     # followupEventInput: EventInput
     # sessionEntityTypes: list[SessionEntityType]

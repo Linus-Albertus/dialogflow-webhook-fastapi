@@ -17,18 +17,16 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"Sanity Check": "OK"}
+    return {"sanity_check": "OK"}
 
 
 @app.post("/dialogflow-webhook")
 async def dialogflow_request(request: DialogFlowRequest):
     action = request.queryResult.action
     match action:
-        case "intent_1":
+        case "ACTION_1":
             response_text = "Esta es la respuesta 1."
-        case "intent_2":
+        case "ACTION_2":
             response_text = "Esta es la respuesta 2."
     response = DialogFlowResponse(fulfillmentText=response_text, source="webhookdata")
-
     return response
-
